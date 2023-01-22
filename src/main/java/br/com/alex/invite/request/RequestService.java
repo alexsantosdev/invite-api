@@ -2,8 +2,11 @@ package br.com.alex.invite.request;
 
 import br.com.alex.invite.companion.Companion;
 import br.com.alex.invite.companion.CompanionRepository;
+import br.com.alex.invite.event.EventRepository;
 import br.com.alex.invite.guest.Guest;
 import br.com.alex.invite.guest.GuestRepository;
+import br.com.alex.invite.user.User;
+import br.com.alex.invite.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +15,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class RequestService {
+    private final UserRepository userRepository;
+    private final EventRepository eventRepository;
     private final GuestRepository guestRepository;
     private final CompanionRepository companionRepository;
 
@@ -21,6 +26,11 @@ public class RequestService {
 
     public List<Companion> listCompanions() {
         return companionRepository.findAll();
+    }
+
+    public void createUser() {
+        var user = User.builder()
+                .name()
     }
 
     public void createGuest(GuestRequest g) {

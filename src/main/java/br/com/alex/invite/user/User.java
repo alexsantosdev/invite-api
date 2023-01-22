@@ -18,6 +18,8 @@ public class User {
     @GeneratedValue
     private Integer id;
     @Column(length = 60)
+    private String user_id;
+    @Column(length = 60)
     private String name;
     @Column(length = 60)
     private String email;

@@ -25,8 +25,8 @@ public class Event {
     @Column(length = 100)
     private String address;
     private Date date;
-    @OneToMany
-    @JoinColumn(nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "event_type_id")
     private EventType event_type;
     private Boolean has_email;
     private Boolean has_phone;
