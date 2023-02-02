@@ -1,5 +1,6 @@
 package br.com.alex.invite.request;
 
+import br.com.alex.invite.user.Plan;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -25,4 +25,6 @@ public class User {
     private String email;
     @Column(length = 30)
     private String provider;
+    @Enumerated(EnumType.STRING)
+    private Plan plan;
 }

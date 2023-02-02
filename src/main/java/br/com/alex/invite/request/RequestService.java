@@ -5,6 +5,7 @@ import br.com.alex.invite.companion.CompanionRepository;
 import br.com.alex.invite.event.EventRepository;
 import br.com.alex.invite.guest.Guest;
 import br.com.alex.invite.guest.GuestRepository;
+import br.com.alex.invite.user.Plan;
 import br.com.alex.invite.user.User;
 import br.com.alex.invite.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,9 +29,15 @@ public class RequestService {
         return companionRepository.findAll();
     }
 
-    public void createUser() {
+    public void createUser(UserRequest u) {
         var user = User.builder()
-                .name()
+                .user_id(u.getUser_id())
+                .name(u.getName())
+                .email(u.getEmail())
+                .provider(u.getProvider())
+                .plan(Plan.FREE)
+                .build();
+        userRepository.save(user);
     }
 
     public void createGuest(GuestRequest g) {
